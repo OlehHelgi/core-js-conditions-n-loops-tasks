@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                             *
@@ -21,9 +22,14 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
+isPositive();
 
 /**
  * Returns the maximum of three numbers without using Array and Math classes methods.
@@ -38,9 +44,19 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+
+function getMaxNumber(a, b, c) {
+  let maxNumber = a;
+
+  if (b > maxNumber) {
+    maxNumber = b;
+  }
+  if (c > maxNumber) {
+    maxNumber = c;
+  }
+  return maxNumber;
 }
+getMaxNumber();
 
 /**
  * Checks if a queen can capture a king in the next move on an 8x8 chessboard.
@@ -60,8 +76,15 @@ function getMaxNumber(/* a, b, c */) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+
+function canQueenCaptureKing(queen, king) {
+  if (queen.x === king.x || queen.y === king.y) {
+    return true;
+  }
+  if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -82,8 +105,14 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a + b > c && a + c > b && b + c > a) {
+    if (a === b || a === c || b === c) {
+      return true;
+    }
+    return false;
+  }
+  return false;
 }
 
 /**
@@ -100,8 +129,52 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  if (num < 1 || num > 39) {
+    return 'The number will be between 1 and 39';
+  }
+  const romanNumerals = [
+    '',
+    'I',
+    'II',
+    'III',
+    'IV',
+    'V',
+    'VI',
+    'VII',
+    'VIII',
+    'IX',
+    'X',
+    'XI',
+    'XII',
+    'XIII',
+    'XIV',
+    'XV',
+    'XVI',
+    'XVII',
+    'XVIII',
+    'XIX',
+    'XX',
+    'XXI',
+    'XXII',
+    'XXIII',
+    'XXIV',
+    'XXV',
+    'XXVI',
+    'XXVII',
+    'XXVIII',
+    'XXIX',
+    'XXX',
+    'XXXI',
+    'XXXII',
+    'XXXIII',
+    'XXXIV',
+    'XXXV',
+    'XXXVI',
+    'XXXVII',
+    'XXXIX',
+  ];
+  return romanNumerals[num];
 }
 
 /**
@@ -119,10 +192,124 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
-}
 
+function convertNumberToString(numberStr) {
+    let result = '';
+    let lastCharWasSpace = true;
+
+    let i = 0;
+    function getNextChar() {
+        if (i < numberStr.length) {
+            const char = numberStr[i];
+            i += 1;
+            return char;
+        }
+        return null;
+    }
+
+    let char = getNextChar();
+    while (char !== null) {
+        switch (char) {
+            case '0':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'zero';
+                lastCharWasSpace = false;
+                break;
+            case '1':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'one';
+                lastCharWasSpace = false;
+                break;
+            case '2':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'two';
+                lastCharWasSpace = false;
+                break;
+            case '3':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'three';
+                lastCharWasSpace = false;
+                break;
+            case '4':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'four';
+                lastCharWasSpace = false;
+                break;
+            case '5':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'five';
+                lastCharWasSpace = false;
+                break;
+            case '6':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'six';
+                lastCharWasSpace = false;
+                break;
+            case '7':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'seven';
+                lastCharWasSpace = false;
+                break;
+            case '8':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'eight';
+                lastCharWasSpace = false;
+                break;
+            case '9':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'nine';
+                lastCharWasSpace = false;
+                break;
+            case '.':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'point';
+                lastCharWasSpace = false;
+                break;
+            case ',':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'point';
+                lastCharWasSpace = false;
+                break;
+            case '-':
+                if (!lastCharWasSpace) {
+                    result += ' ';
+                }
+                result += 'minus';
+                lastCharWasSpace = false;
+                break;
+            default:
+                result += char;
+                lastCharWasSpace = false;
+        }
+        char = getNextChar();
+    }
+
+    return result;
+}
 /**
  * Determines whether a string is a palindrome.
  * In this task, the use of methods of the String and Array classes is not allowed.
@@ -135,8 +322,13 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  for (let i = 0, j = str.length - 1; i < j; i += 1, j -= 1) {
+    if (str[i] !== str[j]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
