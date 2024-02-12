@@ -531,18 +531,19 @@ function rotateMatrix(matrix) {
 function sortByAsc(arr) {
   const n = arr.length;
   let swapped;
-  do {
+  const sortedArr = arr.slice();
+    do {
         swapped = false;
         for (let i = 0; i < n - 1; i += 1) {
-          if (arr[i] > arr[i + 1]) {
-            const temp = arr[i];
-              arr[i] = arr[i + 1];
-              arr[i + 1] = temp;
+          if (sortedArr[i] > sortedArr[i + 1]) {
+            const temp = sortedArr[i];
+              sortedArr[i] = sortedArr[i + 1];
+              sortedArr[i + 1] = temp;
               swapped = true;
             }
         }
     } while (swapped);
-    return arr;
+    return sortedArr;
 }
 
 /**
@@ -562,7 +563,8 @@ function sortByAsc(arr) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(str, iterations) {
+function shuffleChar(/* str, iterations */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -582,8 +584,8 @@ function shuffleChar(str, iterations) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(number) {
-
+function getNearestBigger(/* number */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
