@@ -194,121 +194,121 @@ function convertToRomanNumerals(num) {
  */
 
 function convertNumberToString(numberStr) {
-    let result = '';
-    let lastCharWasSpace = true;
+  let result = '';
+  let lastCharWasSpace = true;
 
-    let i = 0;
-    function getNextChar() {
-        if (i < numberStr.length) {
-            const char = numberStr[i];
-            i += 1;
-            return char;
-        }
-        return null;
+  let i = 0;
+  function getNextChar() {
+    if (i < numberStr.length) {
+      const char = numberStr[i];
+      i += 1;
+      return char;
     }
+    return null;
+  }
 
-    let char = getNextChar();
-    while (char !== null) {
-        switch (char) {
-            case '0':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'zero';
-                lastCharWasSpace = false;
-                break;
-            case '1':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'one';
-                lastCharWasSpace = false;
-                break;
-            case '2':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'two';
-                lastCharWasSpace = false;
-                break;
-            case '3':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'three';
-                lastCharWasSpace = false;
-                break;
-            case '4':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'four';
-                lastCharWasSpace = false;
-                break;
-            case '5':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'five';
-                lastCharWasSpace = false;
-                break;
-            case '6':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'six';
-                lastCharWasSpace = false;
-                break;
-            case '7':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'seven';
-                lastCharWasSpace = false;
-                break;
-            case '8':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'eight';
-                lastCharWasSpace = false;
-                break;
-            case '9':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'nine';
-                lastCharWasSpace = false;
-                break;
-            case '.':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'point';
-                lastCharWasSpace = false;
-                break;
-            case ',':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'point';
-                lastCharWasSpace = false;
-                break;
-            case '-':
-                if (!lastCharWasSpace) {
-                    result += ' ';
-                }
-                result += 'minus';
-                lastCharWasSpace = false;
-                break;
-            default:
-                result += char;
-                lastCharWasSpace = false;
+  let char = getNextChar();
+  while (char !== null) {
+    switch (char) {
+      case '0':
+        if (!lastCharWasSpace) {
+          result += ' ';
         }
-        char = getNextChar();
+        result += 'zero';
+        lastCharWasSpace = false;
+        break;
+      case '1':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'one';
+        lastCharWasSpace = false;
+        break;
+      case '2':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'two';
+        lastCharWasSpace = false;
+        break;
+      case '3':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'three';
+        lastCharWasSpace = false;
+        break;
+      case '4':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'four';
+        lastCharWasSpace = false;
+        break;
+      case '5':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'five';
+        lastCharWasSpace = false;
+        break;
+      case '6':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'six';
+        lastCharWasSpace = false;
+        break;
+      case '7':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'seven';
+        lastCharWasSpace = false;
+        break;
+      case '8':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'eight';
+        lastCharWasSpace = false;
+        break;
+      case '9':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'nine';
+        lastCharWasSpace = false;
+        break;
+      case '.':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'point';
+        lastCharWasSpace = false;
+        break;
+      case ',':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'point';
+        lastCharWasSpace = false;
+        break;
+      case '-':
+        if (!lastCharWasSpace) {
+          result += ' ';
+        }
+        result += 'minus';
+        lastCharWasSpace = false;
+        break;
+      default:
+        result += char;
+        lastCharWasSpace = false;
     }
+    char = getNextChar();
+  }
 
-    return result;
+  return result;
 }
 /**
  * Determines whether a string is a palindrome.
@@ -345,8 +345,14 @@ function isPalindrome(str) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -364,8 +370,16 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let num1 = num;
+  while (num1 > 0) {
+    const currentDigit = num1 % 10;
+    if (currentDigit === digit) {
+      return true;
+    }
+    num1 = Math.floor(num1 / 10);
+  }
+  return false;
 }
 
 /**
@@ -381,8 +395,23 @@ function isContainNumber(/* num, digit */) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+
+  for (let i = 0; i < arr.length; i += 1){
+    let leftSum = 0;
+    let rightSum = 0;
+
+    for (let j = 0; j < i; j += 1){
+      leftSum += arr[j];
+    }
+    for (let k = i + 1; k < arr.length; k += 1){
+      rightSum += arr[k];
+    }
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -406,9 +435,48 @@ function getBalanceIndex(/* arr */) {
  *          [10, 9,  8,  7]
  *        ]
  */
-function getSpiralMatrix(/* size */) {
-  throw new Error('Not implemented');
+function getSpiralMatrix(size) {
+  const matrix = new Array(size);
+  for (let i = 0; i < size; i += 1) {
+        matrix[i] = new Array(size);
+  }
+  let value = 0;
+  let startRow = 0;
+  let endRow = size - 1;
+  let startCol = 0;
+  let endCol = size - 1;
+
+  while (startRow <= endRow && startCol <= endCol) {
+
+    for (let i = startCol; i <= endCol; i += 1) {
+        value += 1;
+        matrix[startRow][i] = value;
+        }
+    startRow += 1;
+
+    for (let i = startRow; i <= endRow; i += 1) {
+        value += 1;
+        matrix[i][endCol] = value;
+        }
+    endCol -= 1;
+
+    for (let i = endCol; i >= startCol; i -= 1) {
+        value += 1;
+        matrix[endRow][i] = value;
+        }
+    endRow -= 1;
+
+    for (let i = endRow; i >= startRow; i -= 1) {
+        value += 1;
+        matrix[i][startCol] = value;
+        }
+    startCol += 1;
+  }
+
+  return matrix;
 }
+
+
 
 /**
  * Rotates a matrix by 90 degrees clockwise in place.
@@ -425,8 +493,25 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+
+function rotateMatrix(matrix) {
+
+  const n = matrix.length;
+  const copiedMatrix = matrix.map(row => row.slice());
+
+  function swap(i, j, x, y) {
+        const temp = copiedMatrix[i][j];
+        copiedMatrix[i][j] = copiedMatrix[x][y];
+        copiedMatrix[x][y] = temp;
+  }
+  for (let i = 0; i < n/2; i += 1) {
+    for (let j = i; j < n - 1; j += 1) {
+            swap(i, j, j, n - i - 1);
+            swap(i, j, n - j - 1, i);
+            swap(i, n - j - 1, n - j - 1, n - i - 1);
+    }
+  }
+  return copiedMatrix;
 }
 
 /**
@@ -443,8 +528,21 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const n = arr.length;
+  let swapped;
+  do {
+        swapped = false;
+        for (let i = 0; i < n - 1; i += 1) {
+          if (arr[i] > arr[i + 1]) {
+            const temp = arr[i];
+              arr[i] = arr[i + 1];
+              arr[i + 1] = temp;
+              swapped = true;
+            }
+        }
+    } while (swapped);
+    return arr;
 }
 
 /**
@@ -465,7 +563,6 @@ function sortByAsc(/* arr */) {
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
 function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
 }
 
 /**
@@ -486,7 +583,7 @@ function shuffleChar(/* str, iterations */) {
  * @returns {number} The nearest larger number, or original number if none exists.
  */
 function getNearestBigger(/* number */) {
-  throw new Error('Not implemented');
+
 }
 
 module.exports = {
